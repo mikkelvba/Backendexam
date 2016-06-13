@@ -1,0 +1,18 @@
+﻿<!-- Her vælger vi de værktøjskasser som skal bruges -->
+@using Eksamen.Infrastructure
+@using Eksamen.Models
+
+@model Repository
+
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    @foreach (Course course in Model.Courses)
+    {
+        <p>@course.Name</p>
+    }
+
+</main>

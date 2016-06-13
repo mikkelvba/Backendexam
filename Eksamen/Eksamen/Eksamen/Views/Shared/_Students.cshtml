@@ -1,0 +1,16 @@
+﻿@using Eksamen.Infrastructure
+@using Eksamen.Models
+@model List<Student>
+<!--Strongly typed - referer til den model der sendes med controller-->
+@{
+    Layout = null;
+}
+
+
+@foreach (Student student in Model) // Looper gennem liste vi har fået med og printer students.
+{
+
+    <h4>Name: @Html.DisplayFor(m => student.Name)</h4> <!--HTML helper for model property - gør brug af data notations-->
+    <p>Birthday: @Html.DisplayFor(m => student.BirthDate)</p>
+    <p>Email: @Html.DisplayFor(m => student.Email)</p>
+}

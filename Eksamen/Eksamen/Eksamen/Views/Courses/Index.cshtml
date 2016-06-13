@@ -1,0 +1,38 @@
+﻿@using Eksamen.Models
+@model List<Course>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Courses and teachers</h1>
+
+<main>
+    <div class="row">
+        <div class="col-xs-8">
+            @foreach (Course course in Model)
+            {
+                <div>
+                    <h2>@Html.DisplayFor(m => course.Name)</h2> <!--HTML helper for model property - gør brug af data notations-->
+                    <p>Teacher: @Html.DisplayFor(m => course.Teacher.Name)</p>
+                    <p>Starting date: @Html.DisplayFor(m => course.StartDate)</p>
+                    <p>End date: @Html.DisplayFor(m => course.EndDate)</p>
+                </div>
+
+            @Ajax.ActionLink("See all students", // Action link som linker til Action Method i controller
+            "GetStudentsPartial", // Action Method name
+            new { id = course.ID }, // Route ID er det parameter som kommer gennem Action Method med get request
+            new AjaxOptions 
+            {
+                UpdateTargetId = "Viewstudents", // Element div to update (nedenfor)
+                InsertionMode = InsertionMode.Replace, // Bruger replace til at erstattet indhold
+                HttpMethod = "GET" // http method
+            })
+            }
+        </div>
+        <div class="col-xs-4">
+            <div id="Viewstudents"></div> <!--Opdater div til at replace med partial view-->
+        </div>
+        </div>
+
+</main>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>

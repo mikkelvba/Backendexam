@@ -1,0 +1,40 @@
+﻿@using Eksamen.Models
+@model Eksamen.Models.Student
+
+<main>
+    @using (Html.BeginForm()) // Opretter HTML form, default er POST
+    {
+        <div>
+            @Html.LabelFor(m => m.Name)
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Email)
+            @Html.EditorFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Password)
+            @Html.EditorFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.EditorFor(m => m.ConfirmPassword)
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.BirthDate)
+            @Html.EditorFor(m => m.BirthDate)
+            @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
+        </div>
+
+        <input type="submit" name="register" id="register" value="Register"/>
+    }
+
+</main>

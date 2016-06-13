@@ -1,0 +1,32 @@
+﻿@using Eksamen.Infrastructure;
+@using Eksamen.Models;
+@model List<Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<main>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th></th>
+        </tr>
+        @foreach (Student student in Model)
+        {
+            using (Html.BeginForm())
+            {
+                <tr>
+                    <td>@Html.LabelFor(m => student.Name) @Html.EditorFor(m => student.Name)</td>
+                    <td>@Html.LabelFor(m => student.Email) @Html.EditorFor(m => student.Email)</td>
+                    <td>@Html.LabelFor(m => student.Password) @Html.EditorFor(m => student.Password) @Html.HiddenFor(m => student.ID)</td>
+                    <td><input type="submit" name="editStudent" id="editStudent" value="Update" /></td>
+                </tr>
+            }
+        }
+    </table>
+</main>

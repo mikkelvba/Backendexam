@@ -1,0 +1,24 @@
+﻿@model string[]
+<!--Øverst fortæller vi, at det er et array af strings vi har sendt med-->
+@{
+    Layout = null;
+}
+
+
+<div class="navbar-collapse collapse">
+    <div class="row">
+        <div class="col-xs-8">
+            <ul class="nav navbar-nav">
+                @foreach (string menuitem in Model) // Looper gennem array og opretter links i menu
+                {
+                    <li>@Html.ActionLink(menuitem, "Index", menuitem)</li>
+                }
+            </ul>
+        </div>
+        <div class="col-xs-4">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Admin Login", "Index", "AdminPanel", new { area = "Admin" }, new { @class = "navbar-brand" })</li>
+            </ul>
+        </div>
+    </div>
+</div>

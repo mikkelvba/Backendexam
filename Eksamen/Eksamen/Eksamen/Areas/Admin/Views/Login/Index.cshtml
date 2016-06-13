@@ -1,0 +1,22 @@
+﻿
+
+
+<main>
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.Label("Username", "Username");
+            @Html.TextBox("Username");
+        </div>
+        <div>
+            @Html.Label("Password", "Password");
+            @Html.Password("Password");
+        </div>
+
+        <input type="submit" name="adminLogin" value="Log in" />
+    }
+
+
+
+
+</main>
